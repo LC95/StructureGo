@@ -26,4 +26,4 @@
 
 即可得到一份`.svg`文件
 
-![StructureGo](\StructureGo.svg)
+![StructureGo](StructureGo.svg)
