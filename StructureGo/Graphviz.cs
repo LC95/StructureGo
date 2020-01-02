@@ -116,7 +116,7 @@ namespace StructureGo
                 throw new Exception("Failed to create graph from source. Check for syntax errors.");
 
             // 加载一个布局
-            if (gvLayout(gvc, g, "dot") != SUCCESS)
+            if (gvLayout(gvc, g, "twopi") != SUCCESS)
                 throw new Exception("Layout failed.");
 
             // 渲染图

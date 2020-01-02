@@ -76,7 +76,7 @@ namespace StructureGo
                 sb.Append("}\n");
             }
 
-            sb.Append($"digraph G{{ concentrate = true \n rankdir = LR \n ranksep = 10 \n overlap = true \n root =  \"{center}\" \n");
+            sb.Append($"digraph G{{  bgcolor=cornsilk concentrate = true \n rankdir = LR \n ranksep = 10 \n overlap = true \n root =  \"{center}\" \n");
             AppendNameSpaceNode();
             AppendNodeDirections();
             sb.Append("}\n");

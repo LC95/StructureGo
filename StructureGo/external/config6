@@ -167,23 +167,23 @@ gvplugin_gd.dll gd {
 #FAILS		jpe:lasi 1
 		png:ps 1
 #FAILS		png:lasi 1
-#FAILS		gd:cairo 1
-#FAILS		gd2:cairo 1
-#FAILS		gif:cairo 1
-#FAILS		jpeg:cairo 1
-#FAILS		jpg:cairo 1
-#FAILS		jpe:cairo 1
-#FAILS		png:cairo -1
+		gd:cairo 1
+		gd2:cairo 1
+		gif:cairo 1
+		jpeg:cairo 1
+		jpg:cairo 1
+		jpe:cairo 1
+		png:cairo -1
 	}
 	device {
-#FAILS		gif:cairo 10
-#FAILS		wbmp:cairo 5
-#FAILS		jpe:cairo 5
-#FAILS		jpeg:cairo 5
-#FAILS		jpg:cairo 5
-#FAILS		png:cairo 5
-#FAILS		gd:cairo 5
-#FAILS		gd2:cairo 5
+		gif:cairo 10
+		wbmp:cairo 5
+		jpe:cairo 5
+		jpeg:cairo 5
+		jpg:cairo 5
+		png:cairo 5
+		gd:cairo 5
+		gd2:cairo 5
 	}
 	device {
 		gif:gd 1
@@ -228,13 +228,46 @@ gvplugin_gdiplus.dll gdiplus {
 		tiff:gdiplus 8
 	}
 	device {
-#FAILS		bmp:cairo 8
-#FAILS		gif:cairo 8
-#FAILS		jpe:cairo 8
-#FAILS		jpeg:cairo 8
-#FAILS		jpg:cairo 8
-#FAILS		png:cairo 8
-#FAILS		tif:cairo 8
-#FAILS		tiff:cairo 8
+		bmp:cairo 8
+		gif:cairo 8
+		jpe:cairo 8
+		jpeg:cairo 8
+		jpg:cairo 8
+		png:cairo 8
+		tif:cairo 8
+		tiff:cairo 8
+	}
+}
+gvplugin_neato_layout.dll neato_layout {
+	layout {
+		neato 0
+		fdp 0
+		sfdp 0
+		twopi 0
+		circo 0
+		patchwork 0
+		osage 0
+		nop 0
+		nop1 0
+		nop2 0
+	}
+}
+gvplugin_pango.dll cairo {
+	render {
+		cairo 10
+	}
+	textlayout {
+		textlayout 10
+	}
+	loadimage {
+		png:cairo 1
+#FAILS		png:lasi 2
+		png:ps 2
+	}
+	device {
+		png:cairo 10
+		ps:cairo -10
+		pdf:cairo 10
+		svg:cairo -10
 	}
 }
