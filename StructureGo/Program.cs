@@ -12,18 +12,11 @@ namespace StructureGo
             try
             {
                 Console.WriteLine("Begin To Process");
-             
-                if (!args.Any())
-                {
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), $"{nameof(StructureGo)}.dll");
-                    var dotSource = AnalyzeNamespaceToDot(path, nameof(StructureGo));
-                    Graphviz.RenderImageToFile(dotSource, "svg", $"{nameof(StructureGo)}.svg");
-                }
-                else
-                {
-                    var dotSource = AnalyzeNamespaceToDot(args[0], args[1]);
-                    Graphviz.RenderImageToFile(dotSource, "svg", $"{args[1]}.svg");
-                }
+
+                var programOption = new ProgramOption(args);
+                var dotSource = AnalyzeNamespaceToDot(programOption);
+                Graphviz.RenderImageToFile(dotSource, programOption.OutputFormat, $"{programOption.Namespace}.{programOption.OutputFormat}");
+
 
                 Console.WriteLine("Finish!");
             }
@@ -35,14 +28,14 @@ namespace StructureGo
             Console.ReadKey();
         }
 
-        public static string AnalyzeNamespaceToDot(string assemblyPath, string nameSpace)
+        public static string AnalyzeNamespaceToDot(ProgramOption programOption)
         {
-            using var assRes = GetAssemblyResolver(assemblyPath);
+            using var assRes = GetAssemblyResolver(programOption.AssemblyPath);
             var ass = assRes.Assembly;
-            var types = ass.GetTypes().Where(t => t.Namespace != null && t.Namespace.Contains(nameSpace)).ToArray();
+            var types = ass.GetTypes().Where(t => t.Namespace != null && t.Namespace.Contains(programOption.Namespace)).ToArray();
             var structureMap = new StructureMap();
             structureMap.AddTypes(types);
-            return structureMap.ToString(nameSpace);
+            return structureMap.ToString(programOption.Namespace);
         }
 
 

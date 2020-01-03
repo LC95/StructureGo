@@ -20,9 +20,9 @@
 
 将程序拷贝至要分析的`.dll`文件处，除`.dll`之外；还必须要有`.deps.json`文件
 
-命令行运行 `StructureGo C:\\xxxx\yourAssembly.dll yourNamespace `
+命令行运行 `StructureGo -P{yourAssembly.dll} -N{yourNamespace} -T{svg} `
 
-例如如`StructureGo D:\Codes\StructureGo\StructureGo\bin\Debug\netcoreapp3.1\StructureGo.dll StructureGo`
+例如`StructureGo -PStructureGo.dll -NStructureGo -Tsvg`
 
 即可得到一份`.svg`文件
 

@@ -57,11 +57,6 @@ namespace StructureGo
 
             var library =
                 _dependencyContext.CompileLibraries.FirstOrDefault(NamesMatch);
-            if (name.Name.StartsWith("Util"))
-            {
-                var a = ";";
-            }
-
             if (library != null)
             {
                 var paths = library.ResolveReferencePaths(_assemblyResolver).ToList();
